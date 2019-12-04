@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="yiqihai-controller:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/yiqihai_controller_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="yiqihai-controller/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="yiqihai-controller" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

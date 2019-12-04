@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="yiqihai-util" />
+        <module name="yiqihai-entity" />
+        <module name="yiqihai-service" />
+        <module name="yiqihai-dao" />
+        <module name="yiqihai-controller" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
