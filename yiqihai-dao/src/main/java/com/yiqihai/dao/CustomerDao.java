@@ -10,4 +10,7 @@ public interface CustomerDao {
     int insertCustomer(CustomerInfo customerInfo);
 
     CustomerInfo customerLogin(CustomerInfo customerInfo);
+
+    //手机号登录
+    CustomerInfo phoneLogin(String phoneNumber);
 }

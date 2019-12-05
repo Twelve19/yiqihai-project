@@ -27,6 +27,8 @@
         <spring.version>5.2.0.RELEASE</spring.version>
         <servlet.version>3.1.0</servlet.version>
         <fileupload.version>1.4</fileupload.version>
+        <aliyun.java.sdk.version>4.0.3</aliyun.java.sdk.version>
+        <jackson.version>2.10.1</jackson.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -107,11 +109,24 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet.version}</version>
             </dependency>
-
+<!--            文件上传-->
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>${fileupload.version}</version>
+            </dependency>
+<!--            util层依赖-->
+<!--            阿里大鱼发送短信验证码-->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyun.java.sdk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -62,8 +62,13 @@
     </insert>
 
     <select id="customerLogin" resultType="com.yiqihai.entity.CustomerInfo">
-        select c_number,c_password from customer_info
+        select c_number,c_name,c_phone from customer_info
         where c_number = #{cNumber}
         and c_password = #{cPassword}
+    </select>
+
+    <select id="phoneLogin" resultType="com.yiqihai.entity.CustomerInfo">
+        select c_number,c_name,c_phone from customer_info
+        where c_phone = #{phoneNumber}
     </select>
 </mapper>

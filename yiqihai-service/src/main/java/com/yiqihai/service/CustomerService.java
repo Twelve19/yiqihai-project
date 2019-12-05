@@ -7,4 +7,6 @@ public interface CustomerService {
     boolean insertCustomer(CustomerInfo customerInfo);
 
     CustomerInfo customerLogin(CustomerInfo customerInfo);
+
+    CustomerInfo phoneLogin(String phoneNumber);
 }

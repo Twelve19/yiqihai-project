@@ -11,5 +11,11 @@
 
     <artifactId>yiqihai-util</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -28,4 +28,8 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerInfo customerLogin(CustomerInfo customerInfo) {
         return customerDao.customerLogin(customerInfo);
     }
+
+    public CustomerInfo phoneLogin(String phoneNumber) {
+        return customerDao.phoneLogin(phoneNumber);
+    }
 }
