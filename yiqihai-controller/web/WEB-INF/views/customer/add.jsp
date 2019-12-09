@@ -1,106 +1,118 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 李威
-  Date: 2019/12/2
-  Time: 20:31
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>添加用户</title>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="/static/layui/css/layui.css" type="text/css" rel="stylesheet" media="all"/>
     <script src="/static/jq/jquery-3.4.1.js"></script>
-    <link href="/static/layui/css/layui.css" rel="stylesheet" type="text/css" media="all"/>
-    <script src="/static/layui.js"></script>
-    <style>
-        #div1{
-            margin-top: 150px;
-            margin-left: 400px;
+    <style type="text/css">
+        img{
+            width: 100%;
+            height: 100%;
         }
+        /* div{
+            border:1px solid red;
+        } */
     </style>
 </head>
-<body>
-
-    <div id="div1">
-        <h1>用户注册</h1>
-        <form class="layui-form" action="/customer/add" method="post">
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    <i class="layui-icon layui-icon-password" style="font-size: 30px; color: #1E9FFF;"></i>
-                </label>
-                <div class="layui-input-inline">
-                    <input type="password" name="cPassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid layui-word-aux">密码等级：<span id="pwdgander"></span></div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    <i class="layui-icon layui-icon-form" style="font-size: 30px; color: #1E9FFF;"></i>
-                </label>
-                <div class="layui-input-block" style="width: 300px">
-                    <input type="text" name="cCard" required  lay-verify="required" placeholder="请输入身份证号码" autocomplete="off" class="layui-input">
+<body background="http://localhost:88/zhuche2.jpg">
+<div class="layui-col-md6 layui-col-md-offset3" style="height: 430px;background-color: rgba(173 ,216 ,230,0.5);margin-top: 60px;">
+    <div class="layui-col-md6 layui-col-md-offset3" >
+        <form class="layui-form" action="/registered/customer" method="post">
+            <h1 align="center">用户注册</h1>
+            <div class="layui-col-md12" style="margin-top: 30px">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><i class="layui-icon layui-icon-cellphone" style="font-size: 30px; color: #1E9FFF;"></i> </label>
+                    <div class="layui-input-block">
+                        <input type="text" id="phoneNumber" name="cPhone" required  lay-verify="required" placeholder="请输入手机号码" autocomplete="off" class="layui-input" style="width: 200px;">
+                    </div>
                 </div>
             </div>
 
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    <i class="layui-icon layui-icon-edit" style="font-size: 30px; color: #1E9FFF;"></i>
-                </label>
-                <div class="layui-input-block" style="width: 300px">
-                    <input type="text" name="cDriving" required  lay-verify="required" placeholder="请输入驾驶证号码" autocomplete="off" class="layui-input">
+            <div class="layui-col-md12">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                        <input type="button" class="layui-btn layui-btn-sm layui-btn-normal" id="get_code" value="获取验证码"/>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" name="phoneCode" required  lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input" style="width: 200px;">
+                    </div>
                 </div>
             </div>
 
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    <i class="layui-icon layui-icon-cellphone" style="font-size: 30px; color: #1E9FFF;"></i>
-                </label>
-                <div class="layui-input-block" style="width: 300px">
-                    <input type="text" name="cPhone" required  lay-verify="required" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+            <div class="layui-col-md12">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><i class="layui-icon layui-icon-password" style="font-size: 30px; color: #1E9FFF;"></i> </label>
+                    <div class="layui-input-block">
+                        <input type="password" id="cPassword1" name="cPassword" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" style="width: 200px;">
+                    </div>
                 </div>
             </div>
 
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    <i class="layui-icon layui-icon-username" style="font-size: 30px; color: #1E9FFF;"></i>
-                </label>
-                <div class="layui-input-block" style="width: 300px">
-                    <input type="text" name="cName" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+            <div class="layui-col-md12">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><i class="layui-icon layui-icon-password" style="font-size: 30px; color: #1E9FFF;"></i> </label>
+                    <div class="layui-input-block">
+                        <input type="password" id="cPassword2" name="cPassword2" required  lay-verify="required" placeholder="请再次输入密码" autocomplete="off" class="layui-input" style="width: 200px;">
+                        <span style="color: red">${err}</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    <i class="layui-icon layui-icon-male" style="font-size: 30px; color: #1E9FFF;"></i>
-                </label>
-                <div class="layui-input-block">
-                    <input type="radio" name="cSex" value="男">
-                    <input type="radio" name="cSex" value="女" checked>
+            <div class="layui-col-md12">
+                <div class="layui-form-item" style="margin-left: 95px;">
+                    <label class="layui-form-label">
+                        <button type="submit" id="btn_zhuche" class="layui-btn layui-btn-sm layui-btn-normal" style="width: 200px;">注&nbsp;&nbsp;册</button>
+                    </label>
                 </div>
             </div>
 
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">添加</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                </div>
-            </div>
         </form>
     </div>
 
-
-
-<script>
-    //Demo
-    layui.use('form', function(){
-        var form = layui.form;
-
-        //监听提交
-        form.on('submit(formDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
-            return false;
-        });
-    });
-</script>
+</div>
 </body>
+<script src="/static/layui/layui.js"></script>
+<script>
+
+    //获取验证码
+    //倒计时
+    var wait=60;
+    function time(o) {
+        if (wait == 0) {
+            o.removeAttribute("disabled");
+            o.value="获取验证码";
+            wait = 60;
+        } else {
+
+            o.setAttribute("disabled", true);
+            o.value="重新发送(" + wait + ")";
+            wait--;
+            setTimeout(function() {
+                    time(o)
+                },
+                1000)
+        }
+    }
+    //发送短信
+    function sendSms(){
+        var phone = $("#phoneNumber").val();
+        $.ajax({
+            method:'get',
+            url:"/customer/getcode?phone="+phone,
+            dataType:'JSON'
+        }).done(function (response) {
+            alert(response.getData());
+        })
+    }
+    //获取验证码
+    $("#get_code").on('click',function(){
+        time(this);
+        sendSms();
+    })
+
+
+
+</script>
+
 </html>

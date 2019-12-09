@@ -1,0 +1,32 @@
+/*图片百分百*/
+img{
+    width: 100%;
+    height: 100%;
+}
+/*登录的模块，包含两个div
+手机号码登录，账号密码登录
+*/
+#login_all{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;z-index: 20
+}
+/*登录div*/
+.login_div{
+    width: 400px;
+    height: 330px;
+    position: fixed;
+    margin-top: 200px;
+    margin-left: 500px;
+    z-index: 30;
+    background: #FCF8E3;
+}
+/*登录信息输入框长度*/
+.text_width{
+    width: 200px;
+}
+/*登录异常颜色*/
+.err_color{
+    width: 200px;
+}

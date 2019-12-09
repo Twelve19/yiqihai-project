@@ -17,7 +17,7 @@ import java.util.Random;
 public class SendSms {
 
     public static String sendSms(String phoneNumber){
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "", "");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4FqP6GrV8XJVb3bCHX8C", "41bbKyirwrYqes0GkrOzj7R8WvYlra");
         IAcsClient client = new DefaultAcsClient(profile);
 
         CommonRequest request = new CommonRequest();

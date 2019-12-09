@@ -30,6 +30,7 @@
         <aliyun.java.sdk.version>4.0.3</aliyun.java.sdk.version>
         <jackson.version>2.10.1</jackson.version>
         <mail.version>1.5.6</mail.version>
+        <jstl.version>1.2</jstl.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -134,6 +135,13 @@
                 <groupId>com.sun.mail</groupId>
                 <artifactId>javax.mail</artifactId>
                 <version>${mail.version}</version>
+            </dependency>
+
+<!--            jstl-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

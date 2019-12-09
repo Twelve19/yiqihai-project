@@ -5,13 +5,12 @@ CREATE TABLE customer_info
 (
     c_id INT PRIMARY KEY AUTO_INCREMENT COMMENT '客户编号',
     c_number VARCHAR(50) UNIQUE NOT NULL COMMENT '账号',
-    c_password VARCHAR(50) NOT NULL COMMENT '密码',
-    c_card VARCHAR(20) NOT NULL COMMENT '身份证',
-    c_driving VARCHAR(50) NOT NULL COMMENT '驾驶证',
-    c_phone VARCHAR(20) NOT NULL COMMENT '手机号码',
-    c_name VARCHAR(20) NOT NULL COMMENT '姓名',
+    c_password VARCHAR(50)  COMMENT '密码',
+    c_card VARCHAR(20)  COMMENT '身份证',
+    c_driving VARCHAR(50)  COMMENT '驾驶证',
+    c_phone VARCHAR(20)  COMMENT '手机号码',
+    c_name VARCHAR(20)  COMMENT '姓名',
     c_sex VARCHAR(20) COMMENT '性别',
-    c_memberid VARCHAR(30) COMMENT '会员编号'
 )COMMENT '用户信息表';
 
 CREATE TABLE member
@@ -39,10 +38,14 @@ CREATE TABLE car_info
 
 CREATE TABLE cartype
 (
-    car_typeid INT AUTO_INCREMENT PRIMARY KEY COMMENT '品牌编号',
-    car_typename VARCHAR(20) COMMENT '品牌名称',
-    car_typedescribe VARCHAR(300) COMMENT '品牌描述'
-)COMMENT '汽车品牌表';
+    car_typeid INT AUTO_INCREMENT PRIMARY KEY COMMENT '车型编号',
+    car_brand varchar (30) COMMIT '品牌',
+    car_typename VARCHAR(20) COMMENT '车型名称',
+    car_typenumber VARCHAR(300) COMMENT '数量'
+)COMMENT '汽车车型表';
+
+
+
 
 CREATE TABLE collect
 (

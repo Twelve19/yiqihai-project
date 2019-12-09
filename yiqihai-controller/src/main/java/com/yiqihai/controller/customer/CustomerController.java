@@ -25,20 +25,6 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    //添加用户
-    @RequestMapping("/add")
-    public ModelAndView addCustomer(CustomerInfo customerInfo){
-        ModelAndView modelAndView = new ModelAndView();
-        customerInfo.setCNumber(CustomerNumberUtils.getCustomerNumber());
-        customerInfo.setCMemberid(customerInfo.getCNumber());
-        boolean result = customerService.insertCustomer(customerInfo);
-        if(result){
-            modelAndView.setViewName("index");
-        }else {
-            modelAndView.setViewName("customer/add");
-        }
-        return modelAndView;
-    }
     //用户登录
     @RequestMapping("/loginforNumber")
     @ResponseBody
@@ -53,6 +39,8 @@ public class CustomerController {
                 responseVo.setCode("200");
                 responseVo.setMsg("登录成功");
                 responseVo.setData(customer);
+                session.setAttribute("cNumber",customer.getCNumber());
+                return responseVo;
             }else {
                 responseVo.setCode("500");
                 responseVo.setMsg("账号密码不正确");
@@ -86,9 +74,10 @@ public class CustomerController {
             CustomerInfo customerInfo = customerService.phoneLogin(phoneNumber);
             if (customerInfo!= null){
                 //登录成功
-                session.setAttribute("customer",customerInfo);
+                session.setAttribute("cNumber",customerInfo.getCNumber());
                 responseVo.setCode("200");
                 responseVo.setMsg("登录成功");
+                responseVo.setData(customerInfo);
             }else {
                 //登录失败
                 responseVo.setCode("500");
@@ -103,5 +92,29 @@ public class CustomerController {
         return responseVo;
     }
 
+    //用户信息查询，返回json数据
+    @RequestMapping("/queryCustomer")
+    @ResponseBody
+    public ResponseVo queryCustomer(HttpSession session){
+        System.out.println("用户信息查询");
+        ResponseVo responseVo = new ResponseVo();
+        if (session.getAttribute("cNumber")!= null){
+            System.out.println("session中存在用户信息");
 
+
+            CustomerInfo customer = customerService.queryCustomer((String) session.getAttribute("cNumber"));
+            if(customer != null){
+                responseVo.setCode("200");
+                responseVo.setMsg("查询信息成功");
+                responseVo.setData(customer);
+            }else {
+                responseVo.setCode("500");
+                responseVo.setMsg("查询失败");
+            }
+        }else {
+            responseVo.setCode("500");
+            responseVo.setMsg("您还未登录");
+        }
+        return responseVo;
+    }
 }

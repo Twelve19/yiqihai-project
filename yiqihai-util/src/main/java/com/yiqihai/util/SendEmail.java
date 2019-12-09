@@ -18,8 +18,8 @@ public class SendEmail {
         props.put("mail.smtp.auth", "true");  //表示使用SMTP发送邮件，须经过身份验证
         props.put("mail.smtp.host", "smtp.qq.com");  //此处填写SMTP服务器，我们是用QQ，所以写QQ邮箱的服务器
         props.put("mail.smtp.port", "587");  //端口号，QQ邮箱提供了两个端口，随意选一个，此处用587
-        props.put("mail.user", "");  // 你的QQ账号，即发件人
-        props.put("mail.password", "");  // 此处的密码是腾讯提供的16位STMP口令
+        props.put("mail.user", "1650062546@qq.com");  // 你的QQ账号，即发件人
+        props.put("mail.password", "mgwjxowckxcabhbg");  // 此处的密码是腾讯提供的16位STMP口令
 
 
         /**

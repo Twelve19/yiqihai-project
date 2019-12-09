@@ -3,62 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yiqihai.dao.CustomerDao">
-    <insert id="insertCustomer">
-        insert into customer_info
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="cNumber != '' and cNumber != null">
-                c_number,
-            </if>
-            <if test="cPassword != '' and cPassword != null">
-                c_password,
-            </if>
-            <if test="cCard != '' and cCard != null">
-                c_card,
-            </if>
-            <if test="cDriving != '' and cDriving != null">
-                c_driving,
-            </if>
-            <if test="cPhone != '' and cPhone != null">
-                c_phone,
-            </if>
-            <if test="cName != '' and cName != null">
-                c_name,
-            </if>
-            <if test="cSex != '' and cSex != null">
-                c_sex,
-            </if>
-            <if test="cMemberid != '' and cMemberid != null">
-                c_memberid,
-            </if>
-        </trim>
 
-        values
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="cNumber != '' and cNumber != null">
-                #{cNumber},
-            </if>
-            <if test="cPassword != '' and cPassword != null">
-                #{cPassword},
-            </if>
-            <if test="cCard != '' and cCard != null">
-                #{cCard},
-            </if>
-            <if test="cDriving != '' and cDriving != null">
-                #{cDriving},
-            </if>
-            <if test="cPhone != '' and cPhone != null">
-                #{cPhone},
-            </if>
-            <if test="cName != '' and cName != null">
-                #{cName},
-            </if>
-            <if test="cSex != '' and cSex != null">
-                #{cSex},
-            </if>
-            <if test="cMemberid != '' and cMemberid != null">
-                #{cMemberid},
-            </if>
-        </trim>
+    <insert id="insertCustomer">
+        insert into customer_info(c_number,c_password,c_phone)
+        values (#{cNumber},#{cPassword},#{cPhone})
     </insert>
 
     <select id="customerLogin" resultType="com.yiqihai.entity.CustomerInfo">
@@ -71,4 +19,20 @@
         select c_number,c_name,c_phone from customer_info
         where c_phone = #{phoneNumber}
     </select>
+
+    <select id="queryCustomer" resultType="com.yiqihai.entity.CustomerInfo">
+        select c_number,c_password,c_phone,c_card,c_driving,c_sex from customer_info
+        where c_number = #{cNumber}
+    </select>
+
+    <update id="updateCustomer">
+        update customer_info
+        set
+        c_card = #{cCard},
+        c_driving = #{cDriving},
+        c_phone = #{cPhone},
+        c_name = #{cName},
+
+
+    </update>
 </mapper>

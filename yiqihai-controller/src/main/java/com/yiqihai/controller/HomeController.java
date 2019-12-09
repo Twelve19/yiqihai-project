@@ -14,10 +14,4 @@ public class HomeController {
         return modelAndView;
     }
 
-    @RequestMapping("/loadCustomerAdd")
-    public ModelAndView loadAdd(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("customer/add");
-        return modelAndView;
-    }
 }
