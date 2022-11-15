@@ -28,7 +28,7 @@
         <servlet.version>3.1.0</servlet.version>
         <fileupload.version>1.4</fileupload.version>
         <aliyun.java.sdk.version>4.0.3</aliyun.java.sdk.version>
-        <jackson.version>2.10.1</jackson.version>
+        <jackson.version>2.12.7.1</jackson.version>
         <mail.version>1.5.6</mail.version>
         <jstl.version>1.2</jstl.version>
     </properties>
